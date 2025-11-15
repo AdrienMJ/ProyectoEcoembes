@@ -31,6 +31,21 @@ public class Contenedor {
                 .filter(e -> !e.getFecha().before(inicio) && !e.getFecha().after(fin))
                 .toList();
     }
+    
+    public void registrarEstado(int estimado) {
+		String nuevoNivel;
+		double porcentajeLlenado = (double) estimado / capacidadEnvases;
+
+		if (porcentajeLlenado < 0.5) { //valores inventados
+			nuevoNivel = "VERDE";
+		} else if (porcentajeLlenado < 0.8) { //valores inventados
+			nuevoNivel = "AMARILLO";
+		} else {
+			nuevoNivel = "ROJO";
+		}
+
+		actualizarNivel(nuevoNivel, estimado);
+	}
 
     // Getters y setters...
     public String getId() {
