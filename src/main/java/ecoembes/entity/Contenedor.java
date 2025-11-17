@@ -47,7 +47,7 @@ public class Contenedor {
 		actualizarNivel(nuevoNivel, estimado);
 	}
 
-    // Getters y setters...
+ // Getters y setters...
     public String getId() {
 		return id;
 	}
@@ -70,6 +70,22 @@ public class Contenedor {
 	
 	public String getNivel() {
 		return nivel;
+	}
+	
+	public void setEstimadoEnvases(int estimadoEnvases) {
+		this.estimadoEnvases = estimadoEnvases;
+	}
+	
+	public void setNivel(String nivel) {
+		this.nivel = nivel;
+	}
+	
+	public void setFechaActualizacion(Date fechaActualizacion) {
+		this.historial.add(new ContenedorEstado(fechaActualizacion, this.estimadoEnvases, this.nivel));
+	}
+	
+	public  void EstimadoEnvases(int estimadoEnvases) {
+		this.estimadoEnvases = estimadoEnvases;
 	}
 	
 	
